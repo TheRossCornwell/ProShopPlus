@@ -39,5 +39,21 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             }
             return Page();
         }
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null || _context.Contact == null)
+            {
+                return NotFound();
+            }
+            var contact = await _context.Contact.FindAsync(id);
+
+            if (contact != null)
+            {
+                Contact = contact;
+                _context.Contact.Remove(Contact);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToPage("./Index");
+        }
     }
 }

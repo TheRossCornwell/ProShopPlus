@@ -5,40 +5,51 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>@Model.Contact.Name</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <h1 class="display-5">@Model.Contact.Name</h1>
+        </div>
+        <div class="col-5">
+            <form method="post">
+                <div class="btn-group float-end" role="group">
+                    <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-primary btn-lg">Edit Contact</a>
+                    <input type="submit" value="Delete Contact" class="btn btn-danger btn-lg" />
+                    <a asp-page="./Index" class="btn btn-secondary btn-lg align-self-end">Back to List</a>
+                </div>
+                    
+            </form>
+        </div>
+    </div>
+</div>
+<hr />
 
-<div>
-    <h4>Contact</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Contact.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Contact.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Contact.PhoneNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Contact.PhoneNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Contact.AltPhoneNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Contact.AltPhoneNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Contact.Notes)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Contact.Notes)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID">Edit</a> |
-    <a asp-page="./Delete" asp-route-id="@Model.Contact?.ID">Delete</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+<table class="table">
+    <thead class="table-light">
+        <tr>
+            <th>Phone Number</th>
+            <th>Extra Number</th>
+            <th></th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Contact?.PhoneNumber</td>
+            <td>@Model.Contact?.AltPhoneNumber</td>
+            <td> </td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead class="table-light">
+        <tr>
+            <th>Contact Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Contact?.Notes</td>
+        </tr>
+    </tbody>
+</table>

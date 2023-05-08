@@ -20,7 +20,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
         }
 
         [BindProperty]
-      public Contact Contact { get; set; } = default!;
+        public Contact Contact { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
