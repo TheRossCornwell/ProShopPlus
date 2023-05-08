@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShopPlus", "ProShopPlus.csproj", "{C4991D32-15AA-48BE-954A-D996278B5690}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShopCatalog", "..\..\RazorPages\ProShopCatalog\ProShopCatalog.csproj", "{2BF35AE6-3C65-40A0-B753-5DFF7A329E1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C4991D32-15AA-48BE-954A-D996278B5690}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4991D32-15AA-48BE-954A-D996278B5690}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4991D32-15AA-48BE-954A-D996278B5690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BF35AE6-3C65-40A0-B753-5DFF7A329E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF35AE6-3C65-40A0-B753-5DFF7A329E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF35AE6-3C65-40A0-B753-5DFF7A329E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF35AE6-3C65-40A0-B753-5DFF7A329E1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

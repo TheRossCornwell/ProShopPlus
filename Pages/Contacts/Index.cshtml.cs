@@ -20,13 +20,15 @@ namespace ProShopPlus.Pages.Contacts.Contacts
         }
 
         public IList<Contact> Contact { get;set; } = default!;
+        public List<Contact> ContactList { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Contact != null)
-            {
-                Contact = await _context.Contact.ToListAsync();
-            }
-        }
+            //Creating 'contacts' variable
+            var contacts = from c in _context.Contact
+                           select c;
+
+            ContactList = await contacts.ToListAsync();
+        } 
     }
 }

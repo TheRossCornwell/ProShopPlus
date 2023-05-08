@@ -20,3 +20,73 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+section.grid {
+    font-size: medium;
+}
+
+    section.grid a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+        section.grid a:hover {
+            background-color: cyan;
+        }
+
+    section.grid a {
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+    }
+
+.starter {
+    font-weight: bold;
+}
+
+.favorite {
+    background-color: gold;
+}
