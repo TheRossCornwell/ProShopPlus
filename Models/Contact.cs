@@ -6,13 +6,15 @@ namespace ProShopPlus.Models
     {
         public int ID { get; set; }
         [Required(ErrorMessage = "Name Required")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Required(ErrorMessage = "Telephone Number Required")]
         [Phone]
-        public string PhoneNumber { get; set; }
+        [Display(Name="Phone Number")]
+        public string? PhoneNumber { get; set; }
 
         [Phone]
+        [Display(Name="Alternative Number")]
         public string? AltPhoneNumber { get; set; }
 
         public string? Notes { get; set; }
