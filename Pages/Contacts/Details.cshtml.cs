@@ -55,5 +55,6 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             }
             return RedirectToPage("./Index");
         }
+
     }
 }

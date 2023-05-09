@@ -11,14 +11,11 @@
             <h1 class="display-5">@Model.Contact.Name</h1>
         </div>
         <div class="col-5">
-            <form method="post">
                 <div class="btn-group float-end" role="group">
-                    <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-primary btn-lg">Edit Contact</a>
-                    <input type="submit" value="Delete Contact" class="btn btn-danger btn-lg" />
-                    <a asp-page="./Index" class="btn btn-secondary btn-lg align-self-end">Back to List</a>
+                    <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-lg btn-primary ">Edit Contact</a>
+                    <button type="button" class="btn btn-danger btn-lg " data-bs-toggle="modal" data-bs-target="#deleteContact">Delete Contact</button>
+                    <a asp-page="./Index" class="btn btn-lg btn-secondary">Back to List</a>
                 </div>
-                    
-            </form>
         </div>
     </div>
 </div>
@@ -53,3 +50,25 @@
         </tr>
     </tbody>
 </table>
+
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteContact" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                <button type="button" id="closeBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <h6> Are you sure you want to remove @Model.Contact?.Name </h6>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

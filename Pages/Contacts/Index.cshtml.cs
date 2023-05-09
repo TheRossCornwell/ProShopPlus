@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -19,7 +20,8 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             _context = context;
         }
 
-        public IList<Contact> Contact { get;set; } = default!;
+        [BindProperty]
+        public Contact ContactVal { get; set; } = default!;
         public List<Contact> ContactList { get;set; } = default!;
 
         public async Task OnGetAsync()
@@ -29,6 +31,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
                            select c;
 
             ContactList = await contacts.ToListAsync();
-        } 
+        }
+
     }
 }
