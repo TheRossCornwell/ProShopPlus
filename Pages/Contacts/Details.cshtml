@@ -10,7 +10,7 @@
         <div class="col-7">
             <h1 class="display-5">@Model.Contact.Name</h1>
         </div>
-        <div class="col-5">
+        <div class="d-grid gap-2 col-5">
                 <div class="btn-group float-end" role="group">
                     <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-lg btn-primary ">Edit Contact</a>
                     <button type="button" class="btn btn-danger btn-lg " data-bs-toggle="modal" data-bs-target="#deleteContact">Delete Contact</button>
@@ -62,7 +62,7 @@
             </div>
             <div class="modal-body">
                 <form method="post">
-                    <h6> Are you sure you want to remove @Model.Contact?.Name </h6>
+                    <h6> Are you sure you want to remove @Model.Contact?.Name ? </h6>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger">Delete</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

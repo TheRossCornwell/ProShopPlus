@@ -5,11 +5,19 @@
     ViewData["Title"] = "Contact Index";
 }
 
-<h1>Contact Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <h1 class="display-3">Contact index</h1>
+        </div>
+        <div class="d-grid gap-2 col-2 p-2 px-1">
+            
+                <a asp-page="./Create" class="btn btn-lg btn-success float-end">Create Contact</a>
+            
+        </div>
+    </div>
+</div>
 
 <!-- Display grid of Contacts -->
 <section class="grid">
