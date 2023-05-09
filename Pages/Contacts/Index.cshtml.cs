@@ -20,8 +20,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             _context = context;
         }
 
-        [BindProperty]
-        public Contact ContactVal { get; set; } = default!;
+        
         public List<Contact> ContactList { get;set; } = default!;
 
         public async Task OnGetAsync()
@@ -30,8 +29,20 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             var contacts = from c in _context.Contact
                            select c;
 
+            //Search function
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                contacts = contacts.Where(c => c.Name.ToLower().Contains(SearchString.ToLower()));
+            }
+
+            //Sort by name
+            contacts = contacts.OrderBy(c => c.Name.ToLower());
+
             ContactList = await contacts.ToListAsync();
         }
 
+        // Search Properites
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; } // Search Function variable
     }
 }
