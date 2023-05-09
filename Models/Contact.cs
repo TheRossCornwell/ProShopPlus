@@ -11,10 +11,12 @@ namespace ProShopPlus.Models
         [Required(ErrorMessage = "Telephone Number Required")]
         [Phone]
         [Display(Name="Phone Number")]
+        [StringLength(15, MinimumLength = 11)]
         public string? PhoneNumber { get; set; }
 
         [Phone]
         [Display(Name="Alternative Number")]
+        [StringLength(15, MinimumLength = 11)]
         public string? AltPhoneNumber { get; set; }
 
         public string? Notes { get; set; }

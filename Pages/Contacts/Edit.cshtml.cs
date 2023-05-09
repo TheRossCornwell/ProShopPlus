@@ -27,28 +27,36 @@ namespace ProShopPlus.Pages.Contacts.Contacts
         {
             if (id == null || _context.Contact == null)
             {
-                return NotFound();
+                Contact = new Contact();
             }
-
-            var contact =  await _context.Contact.FirstOrDefaultAsync(m => m.ID == id);
-            if (contact == null)
+            else
             {
-                return NotFound();
+                var contact =  await _context.Contact.FirstOrDefaultAsync(m => m.ID == id);
+                if (contact == null)
+                {
+                    return NotFound();
+                }
+                Contact = contact;
             }
-            Contact = contact;
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            if( id == null)
+            {
+                _context.Contact.Add(Contact);
+            }
+            else
+            {
+                _context.Attach(Contact).State = EntityState.Modified;
+            }
 
-            _context.Attach(Contact).State = EntityState.Modified;
+            
 
             try
             {
