@@ -32,11 +32,13 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             //Search function
             if (!string.IsNullOrEmpty(SearchString))
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 contacts = contacts.Where(c => c.Name.ToLower().Contains(SearchString.ToLower()));
             }
 
             //Sort by name
             contacts = contacts.OrderBy(c => c.Name.ToLower());
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
             ContactList = await contacts.ToListAsync();
         }
