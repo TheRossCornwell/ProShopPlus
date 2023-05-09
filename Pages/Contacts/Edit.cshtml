@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col"></div>
-        <div class="col-6">
+        <div class="col-8">
             <div class="text-center">
                 <h1>Update Contact</h1>
             </div>
@@ -32,12 +32,6 @@
                     <label asp-for="Contact.AltPhoneNumber">Additional Number</label>
                     <span asp-validation-for="Contact.AltPhoneNumber" class="text-danger"></span>
                 </div>
-                <!--
-                <div class="col-12 form-floating">
-                    <input asp-for="Contact.Notes" class="form-control" placeholder="Notes Here" />
-                    <label asp-for="Contact.Notes">Contact Notes</label>
-                    <span asp-validation-for="Contact.Notes" class="text-danger"></span>
-                </div>-->
                 <div class="col-12 form-floating">
                     <textarea asp-for="Contact.Notes" class="form-control" placeholder="Notes Here" style="height: 100px"></textarea>
                     
@@ -56,6 +50,8 @@
         <div class="col"></div>
     </div>
 </div>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

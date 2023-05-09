@@ -44,6 +44,10 @@ a {
     border-color: #1861ac;
 }
 
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #d9f9b9;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
