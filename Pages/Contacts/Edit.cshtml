@@ -5,44 +5,56 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <div class="text-center">
+                <h1>Update Contact</h1>
+            </div>
+            <form class="row g-3" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Contact.ID" />
+                <div class="col-12 form-floating">
+                    <input asp-for="Contact.Name" class="form-control" placeholder="Bob Smith" />
+                    <label asp-for="Contact.Name">Name</label>
+                    <span asp-validation-for="Contact.Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-floating">
+                    <input asp-for="Contact.PhoneNumber" class="form-control" placeholder="00000 000000" />
+                    <label asp-for="Contact.PhoneNumber">Phone Number</label>
+                    <span asp-validation-for="Contact.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-floating">
 
-<h4>Contact</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Contact.ID" />
-            <div class="form-group">
-                <label asp-for="Contact.Name" class="control-label"></label>
-                <input asp-for="Contact.Name" class="form-control" />
-                <span asp-validation-for="Contact.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.PhoneNumber" class="control-label"></label>
-                <input asp-for="Contact.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Contact.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.AltPhoneNumber" class="control-label"></label>
-                <input asp-for="Contact.AltPhoneNumber" class="form-control" />
-                <span asp-validation-for="Contact.AltPhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.Notes" class="control-label"></label>
-                <input asp-for="Contact.Notes" class="form-control" />
-                <span asp-validation-for="Contact.Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+
+                    <input asp-for="Contact.AltPhoneNumber" class="form-control" placeholder="00000 000000" />
+                    <label asp-for="Contact.AltPhoneNumber">Additional Number</label>
+                    <span asp-validation-for="Contact.AltPhoneNumber" class="text-danger"></span>
+                </div>
+                <!--
+                <div class="col-12 form-floating">
+                    <input asp-for="Contact.Notes" class="form-control" placeholder="Notes Here" />
+                    <label asp-for="Contact.Notes">Contact Notes</label>
+                    <span asp-validation-for="Contact.Notes" class="text-danger"></span>
+                </div>-->
+                <div class="col-12 form-floating">
+                    <textarea asp-for="Contact.Notes" class="form-control" placeholder="Notes Here" style="height: 100px"></textarea>
+                    
+                    <label asp-for="Contact.Notes">Contact Notes</label>
+                    <span asp-validation-for="Contact.Notes" class="text-danger"></span>
+                </div>
+
+                <div class="col-6 d-grid gap-2">
+                    <button type="submit" class="btn btn-lg btn-primary">Update</button>
+                </div>
+                <div class="col-6 d-grid gap-2">
+                    <a class="btn btn-lg btn-secondary" href="##" onClick="history.go(-1); return false;">Cancel</a>
+                </div>
+            </form>
+        </div>
+        <div class="col"></div>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
