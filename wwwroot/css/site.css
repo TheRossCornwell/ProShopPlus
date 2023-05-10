@@ -44,16 +44,26 @@ a {
     border-color: #1861ac;
 }
 
+/* Table styles
+-------------------------------------------------- */
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
     background-color: #d9f9b9;
 }
 
-/* Sticky footer styles
+
+
+
+
+
+
+
+
+    /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-}
+    html {
+        position: relative;
+        min-height: 100%;
+    }
 
 body {
     /* Margin bottom by footer height */
