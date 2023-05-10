@@ -5,23 +5,31 @@
     ViewData["Title"] = "Details";
 }
 
-<div class="container">
+
+<div class="container-fluid g-0">
     <div class="row">
-        <div class="col-7">
-            <h1 class="display-5">@Model.Contact.Name</h1>
+        <div class="col-6">
+            <h1 class="display-5">@Model.Contact?.Name</h1>
         </div>
-        <div class="d-grid gap-2 col-5">
-                <div class="btn-group float-end" role="group">
-                    <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-lg btn-primary ">Update Contact</a>
-                    <button type="button" class="btn btn-danger btn-lg " data-bs-toggle="modal" data-bs-target="#deleteContact">Delete Contact</button>
-                    <a asp-page="./Index" class="btn btn-lg btn-secondary">Back to List</a>
-                </div>
+        <div class="d-grid col-6 g-0">
+            <div class="btn-group text-center" role="group">
+                <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-primary ">Update&nbspContact</a>
+                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteContact">Delete&nbspContact</button>
+                <a asp-page="./Index" class="btn btn-secondary">View&nbspContacts</a>
+            </div>
         </div>
     </div>
-</div>
-<hr />
 
-<table class="table">
+    <div class="row mt-1">
+
+
+
+
+
+
+
+<div class="position-relative g-0">
+<table class="table g-0">
     <thead class="table-light">
         <tr>
             <th>Phone Number</th>
@@ -70,5 +78,8 @@
                 </form>
             </div>
         </div>
+    </div>
+</div>
+</div>
     </div>
 </div>
