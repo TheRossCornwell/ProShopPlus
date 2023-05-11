@@ -20,5 +20,8 @@ namespace ProShopPlus.Models
         public string? AltPhoneNumber { get; set; }
 
         public string? Notes { get; set; }
+
+
+        public ICollection<Repair>? Repairs { get; set; }
     }
 }

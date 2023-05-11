@@ -46,9 +46,9 @@ namespace ProShopPlus.Models
 
         //Progress ---------------------|
         [Required]
-        public string? Progress { get; set; }   
+        public string? Progress { get; set; }
 
-
+        public Contact? Contact { get; set; }
 
         
     }
