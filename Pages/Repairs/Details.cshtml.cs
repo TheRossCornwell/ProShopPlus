@@ -39,5 +39,21 @@ namespace ProShopPlus.Pages.Repairs
             }
             return Page();
         }
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null || _context.Repair == null)
+            {
+                return NotFound();
+            }
+            var repair = await _context.Repair.FindAsync(id);
+
+            if (repair != null)
+            {
+                Repair = repair;
+                _context.Repair.Remove(Repair);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToPage("./Index");
+        }
     }
 }
