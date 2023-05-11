@@ -27,29 +27,37 @@ namespace ProShopPlus.Pages.Repairs
         {
             if (id == null || _context.Repair == null)
             {
-                return NotFound();
+                Repair = new Repair();
             }
-
-            var repair =  await _context.Repair.FirstOrDefaultAsync(m => m.ID == id);
-            if (repair == null)
+            else
             {
-                return NotFound();
+                var repair = await _context.Repair.FirstOrDefaultAsync(m => m.ID == id);
+                if (repair == null)
+                {
+                    return NotFound();
+                }
+                Repair = repair;
             }
-            Repair = repair;
-           ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
+            ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            if (id == null)
+            {
+                _context.Repair.Add(Repair);
+            }
+            else
+            {
+                _context.Attach(Repair).State = EntityState.Modified;
+            }
 
-            _context.Attach(Repair).State = EntityState.Modified;
+            
 
             try
             {

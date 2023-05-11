@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id?}"
 @model ProShopPlus.Pages.Repairs.EditModel
 
 @{
@@ -16,7 +16,9 @@
             <input type="hidden" asp-for="Repair.ID" />
             <div class="form-group">
                 <label asp-for="Repair.ContactID" class="control-label"></label>
-                <select asp-for="Repair.ContactID" class="form-control" asp-items="ViewBag.ContactID"></select>
+                <select asp-for="Repair.ContactID" class="form-control" asp-items="ViewBag.ContactID">
+                    <option selected disabled>Please select</option>
+                </select>
                 <span asp-validation-for="Repair.ContactID" class="text-danger"></span>
                 <a asp-page="/Contacts/Edit">Add Contact</a>
             </div>
@@ -37,12 +39,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Repair.Component" class="control-label"></label>
-                <input asp-for="Repair.Component" class="form-control" />
+                <textarea asp-for="Repair.Component" class="form-control"></textarea>
                 <span asp-validation-for="Repair.Component" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Repair.Description" class="control-label"></label>
-                <input asp-for="Repair.Description" class="form-control" />
+                <textarea asp-for="Repair.Description" class="form-control"></textarea>
                 <span asp-validation-for="Repair.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -52,7 +54,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Repair.Paid" class="control-label"></label>
-                <input asp-for="Repair.Paid" class="form-control" />
+                <select asp-for="Repair.Paid" class="form-control">
+                    <option selected disabled>Select Option</option>
+                    <option>NO</option>
+                    <option>DEPOSIT</option>
+                    <option>YES</option>
+                </select>
                 <span asp-validation-for="Repair.Paid" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -62,7 +69,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Repair.Progress" class="control-label"></label>
-                <input asp-for="Repair.Progress" class="form-control" />
+                <select asp-for="Repair.Progress" class="form-control">
+                    <option>[1] New</option>
+                    <option>[2] Part Pending</option>
+                    <option>[3] Part Available</option>
+                    <option>[4] Working</option>
+                    <option>[5] Complete</option>
+                    <option>[6] Contacted</option>
+                    <option>[7] Collected</option>
+                </select>
                 <span asp-validation-for="Repair.Progress" class="text-danger"></span>
             </div>
             <div class="form-group">
