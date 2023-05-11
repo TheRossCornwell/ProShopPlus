@@ -73,7 +73,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
                     throw;
                 }
             }
-
+            
             return RedirectToPage("./Index");
         }
 
