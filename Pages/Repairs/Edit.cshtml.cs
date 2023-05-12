@@ -22,9 +22,13 @@ namespace ProShopPlus.Pages.Repairs
 
         [BindProperty]
         public Repair Repair { get; set; } = default!;
+        public List<Contact> ContactList { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            var contacts = from c in _context.Contact
+                           select c;
+            ContactList = await contacts.ToListAsync();
             if (id == null || _context.Repair == null)
             {
                 Repair = new Repair();

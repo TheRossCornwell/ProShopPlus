@@ -91,6 +91,24 @@
     <a asp-page="./Index">Back to List</a>
 </div>
 
+<hr />
+
+<div class="container mt-4">
+    <input type="text" class="form-control" placeholder="Search name..." list="fruitList"/>
+</div>
+
+
+<datalist id="fruitList">
+    <option value="Apple"></option>
+    <option value="Banana"></option>
+    <option value="Mango"></option>
+    @foreach(var item in Model.ContactList)
+    {
+        <option value="@item.ID" label="@item.Name"></option>
+    }
+
+</datalist>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
