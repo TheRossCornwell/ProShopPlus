@@ -10,8 +10,11 @@ namespace ProShopPlus.Models
         // Keys
         [Key]
         public int ID { get; set; }
+
+        [Required]
         [ForeignKey("ContactID")]
-        public int ContactID { get; set; }
+        [ConcurrencyCheck]
+        public int? ContactID { get; set; }
 
         // Dates ---------------------|
         [Required]

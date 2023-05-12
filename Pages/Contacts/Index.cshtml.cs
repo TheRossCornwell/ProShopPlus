@@ -28,7 +28,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             //Creating 'contacts' variable
             var contacts = from c in _context.Contact
                            select c;
-
+            contacts = contacts.Where(c => c.ID != 0);
             //Search function
             if (!string.IsNullOrEmpty(SearchString))
             {

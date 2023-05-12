@@ -14,6 +14,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Repair.ID" />
+            <!--
             <div class="form-group">
                 <label asp-for="Repair.ContactID" class="control-label"></label>
                 <select asp-for="Repair.ContactID" class="form-control" asp-items="ViewBag.ContactID">
@@ -22,6 +23,30 @@
                 <span asp-validation-for="Repair.ContactID" class="text-danger"></span>
                 <a asp-page="/Contacts/Edit">Add Contact</a>
             </div>
+            -->
+
+            <div class="form-group">
+                <label asp-for="Repair.ContactID" class="control-label"></label>
+                <input asp-for="Repair.ContactID" type="text" class="form-control" placeholder="Search name..." list="contactList" />
+                <span asp-validation-for="Repair.ContactID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                
+                <select class="form-control" disabled>
+                    <option>@Model.RepairList[0].Contact?.Name</option>
+                </select>
+                
+            </div>
+
+
+
+
+
+
+
+
+
             <div class="form-group">
                 <label asp-for="Repair.StartDate" class="control-label"></label>
                 <input asp-for="Repair.StartDate" class="form-control" />
@@ -91,23 +116,29 @@
     <a asp-page="./Index">Back to List</a>
 </div>
 
-<hr />
-
-<div class="container mt-4">
-    <input type="text" class="form-control" placeholder="Search name..." list="fruitList"/>
-</div>
 
 
-<datalist id="fruitList">
-    <option value="Apple"></option>
-    <option value="Banana"></option>
-    <option value="Mango"></option>
+
+<datalist id="contactList">
+    <option selected disabled>Please select</option>
+    
     @foreach(var item in Model.ContactList)
     {
         <option value="@item.ID" label="@item.Name"></option>
     }
 
 </datalist>
+
+<datalist id="contactName">
+@foreach (var item in Model.RepairList)
+{
+
+    
+    <option>@item.Contact?.Name</option>
+}
+</datalist>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

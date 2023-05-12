@@ -23,19 +23,29 @@ namespace ProShopPlus.Pages.Repairs
         [BindProperty]
         public Repair Repair { get; set; } = default!;
         public List<Contact> ContactList { get; set; } = default!;
+        public List<Repair> RepairList { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             var contacts = from c in _context.Contact
                            select c;
+            contacts = contacts.Where(c => c.ID != 0);
             ContactList = await contacts.ToListAsync();
+            var repairContact = from c in _context.Repair
+                                select c;
+            
+            RepairList = await repairContact.ToListAsync();
             if (id == null || _context.Repair == null)
             {
                 Repair = new Repair();
+                
             }
             else
             {
                 var repair = await _context.Repair.FirstOrDefaultAsync(m => m.ID == id);
+                repairContact = repairContact.Where(c => c.ID == id);
+                RepairList = await repairContact.ToListAsync();
+
                 if (repair == null)
                 {
                     return NotFound();
