@@ -12,8 +12,9 @@ namespace ProShopPlus.Models
         public int ID { get; set; }
 
         [Required]
+        [DisplayName("Contact ID")]
         [ForeignKey("ContactID")]
-        [ConcurrencyCheck]
+        
         public int? ContactID { get; set; }
 
         // Dates ---------------------|
