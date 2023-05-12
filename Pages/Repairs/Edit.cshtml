@@ -10,32 +10,36 @@
 <div class="container">
     <div class="row">
         <div class="col"></div>
-        <div class="col-8">
-            <div class="text-center">
+        <div class="col-10">
+            <div class="row ">
+
+            <div class="col"></div>
+            <div class="col-md-8 text-center mt-3">
                 <h1>Update Repair</h1>
+            </div>
+            <div class="col d-grid p-3 float-end">
+                <a asp-page="/Contacts/Edit" class="btn btn-lg btn-success"><h4><i class="fa fa-user"></i></h4></a>
+            </div>
             </div>
             <form class="row g-3" method="post">
                 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Repair.ID" />
 
-                <div class="col-6 form-floating">
+                <div class="col-md-6 form-floating">
                     <select class="form-control" disabled>
                         <option>@Model.RepairList[0].Contact?.Name</option>
                     </select>
                     <label class="control-label">Contact Name</label>
                 </div>
 
-                <div class="col-5 form-floating">
+                <div class="col-md-6 form-floating">
                     <input asp-for="Repair.ContactID" type="text" class="form-control" placeholder="Search name..." list="contactList" />
                     <label asp-for="Repair.ContactID" class="control-label"></label>
                     <span asp-validation-for="Repair.ContactID" class="text-danger"></span>
                 </div>
 
-                <div class="col-1 d-grid gap-3">
-
-                        <a asp-page="/Contacts/Edit" class="btn btn-lg btn-success"><h3>+</h3></a>  
-                </div>
+                
 
                 <div class="col-md-6 form-floating">
                     <input asp-for="Repair.StartDate" class="form-control" />
@@ -90,7 +94,7 @@
                     <span asp-validation-for="Repair.Balance" class="text-danger"></span>
                 </div>
 
-                <div class="col-12 form-floating">
+                <div class="col-md-12 form-floating">
                     
                     <select asp-for="Repair.Progress" class="form-control">
                         <option>[1] New</option>
@@ -105,10 +109,10 @@
                     <span asp-validation-for="Repair.Progress" class="text-danger"></span>
                 </div>
 
-                <div class="col-6 d-grid gap-2">
+                <div class="col-md-6 d-grid gap-2">
                     <button type="submit" class="btn btn-lg btn-primary">Update</button>
                 </div>
-                <div class="col-6 d-grid gap-2">
+                <div class="col-md-6 d-grid gap-2">
                     <a class="btn btn-lg btn-secondary" href="##" onClick="history.go(-1); return false;">Cancel</a>
                 </div>
                 
