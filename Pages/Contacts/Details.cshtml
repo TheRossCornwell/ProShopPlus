@@ -12,10 +12,10 @@
             <h1 class="display-5">@Model.Contact?.Name</h1>
         </div>
         <div class="d-grid col-6 g-0">
-            <div class="btn-group text-center" role="group">
-                <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-primary ">Update&nbsp;Contact</a>
-                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteContact">Delete&nbsp;Contact</button>
-                <a asp-page="./Index" class="btn btn-secondary">View&nbsp;Contacts</a>
+            <div class="btn-group" role="group">
+                <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" class="btn btn-primary "><h3><i class="fa fa-wrench"></i><i class="fa fa-user"></i></h3></a>
+                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deleteContact"><h3><i class="fa fa-user-times"></i></h3></button>
+                <a asp-page="./Index" class="btn btn-secondary"><h3><i class="fa fa-address-book" aria-hidden="true"></i></h3></a>
             </div>
         </div>
     </div>
