@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using ProShopPlus.Data;
 using ProShopPlus.Models;
 
@@ -25,13 +26,31 @@ namespace ProShopPlus.Pages.Repairs
         public List<Contact> ContactList { get; set; } = default!;
         public async Task OnGetAsync()
         {
+            var repairs = from c in _context.Repair
+                          select c;
+            
+            
+            repairs = repairs.Where(c => !HideList.Contains(c.Progress));
+            
+            
+
+            
+
+
             //Creating 'contacts & repairs' variable
             var contacts = from c in _context.Contact
                            select c;
             ContactList = await contacts.ToListAsync();
-            var repairs = from c in _context.Repair
-                           select c;
+            //repairs = from c in _context.Repair
+                          // select c;
             repairs = repairs.Where(c => c.ID != 0);
+
+            //View Function
+            
+
+
+
+
             //Search function
             if (!string.IsNullOrEmpty(SearchString))
             {
@@ -48,10 +67,14 @@ namespace ProShopPlus.Pages.Repairs
         [BindProperty(SupportsGet = true)]
         public string? SearchString { get; set; } // Search Function variable
 
+        [BindProperty(SupportsGet = true)]
+        public List<string> HideList { get; set; }
+
+        
 
 
 
-            
+
         }
     }
 

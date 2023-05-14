@@ -6,20 +6,36 @@
 }
 
 <div class="g-0">
-    <table class="table table-hover accordion table-borderless">
+    <table class="table table-hover accordion table-bordered">
         <thead class="bg-white sticky-top top-0">
             <tr class="">
                 <th colspan="2">
                     <h2><i class="fa-solid fa-screwdriver-wrench">&nbsp;&nbsp;Repairs</i></h2>
                 </th>
-                <th colspan="4">
-                    <form class="input-group input-group-lg">
+                <form>
+                <th colspan="3">
+                    <div class="input-group input-group-lg">
                         <!--  -->
                         <input type="text" class="form-control" asp-for="SearchString" placeholder="Search Name" aria-label="Search Name" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+                        <button class="btn btn-outline-secondary" type="submit" value="search" id="button-addon2"><i class="fa fa-search"></i></button>
 
-                    </form>
+                    </div>
                 </th>
+                
+                <th colspan="2">
+
+                    <select asp-for="HideList" class="selectpicker form-control input-group-lg" data-style="btn-primary" multiple data-actions-box="true" placeholder="Hide" data-selected-text-format="static" autocomplete="off">
+                        <option value="[1] New">New</option>
+                        <option value="[2] Part Pending">Part Pending</option>
+                        <option value="[3] Part Available">Part Available</option>
+                        <option value="[4] Working">Working</option>
+                        <option value="[5] Complete">Complete</option>
+                        <option value="[6] Contacted">Contacted</option>
+                        <option value="[7] Collected">Collected</option>
+                        </select>
+                    
+                </th>
+                </form>
                 <th colspan="2">
 
                     <div class="d-grid input-group input-group-lg  ">
@@ -30,12 +46,13 @@
 
             </tr>
             <tr class="border-bottom border-dark">
-                <th class="w-5"><i class="fa-solid fa-hashtag"></i></th>
+                <th class="w-2-5"><i class="fa-solid fa-hashtag"></i></th>
                 <th class="w-15">Start&nbsp;Date</th>
                 <th class="w-15">Target&nbsp;Date</th>
                 <th class="w-20">Repair&nbsp;Type</th>
                 <th class="w-25">Contact</th>
                 <th class="w-5 text-center">Status</th>
+                <th class="w-2-5"></th>
                 <th class="w-10"></th>
                 <th class="w-5 text-center"><i class="fa fa-sticky-note"></i></th>
             </tr>
@@ -54,7 +71,7 @@
                     <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.TargetDate &nbsp;</a></td>
                     <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.Type</a></td>
                     <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.Contact?.Name</a></td>
-                    <td colspan="2"><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.Progress</a></td>
+                    <td colspan="3"><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.Progress</a></td>
                     <td class="text-center" data-bs-toggle="collapse" data-bs-target="#@rowNum"><i class="fa fa-chevron-down"></i></td>
                 </tr>
                 
@@ -68,3 +85,31 @@
         </tbody>
     </table>
 </div>
+
+
+<!-- DROP DOWN MENU TESTING-->
+
+
+
+
+<form>
+<select  class="selectpicker form-control input-group-lg" data-style="btn-primary" multiple data-actions-box="true" placeholder="View" data-selected-text-format="static" onchange="this.form.submit();">
+    <option value="1" selected>New</option>
+    <option value="2" selected>Part Pending</option>
+    <option value="3">Part Available</option>
+    <option value="4">Working</option>
+    <option value="5">Complete</option>
+    <option value="6">Contacted</option>
+    <option value="7">Contacted</option>
+</select>
+</form>
+
+
+<h1>
+    @Model.HideList</h1>
+
+
+@foreach (var item in Model.HideList)
+{
+    <h1>@item</h1>
+}
