@@ -2,143 +2,69 @@
 @model ProShopPlus.Pages.Repairs.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Repair Index";
 }
 
-<h1>Index</h1>
+<div class="g-0">
+    <table class="table table-hover accordion table-borderless">
+        <thead class="bg-white sticky-top top-0">
+            <tr class="">
+                <th colspan="2">
+                    <h2><i class="fa-solid fa-screwdriver-wrench">&nbsp;&nbsp;Repairs</i></h2>
+                </th>
+                <th colspan="4">
+                    <form class="input-group input-group-lg">
+                        <!--  -->
+                        <input type="text" class="form-control" asp-for="SearchString" placeholder="Search Name" aria-label="Search Name" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
 
-<p>
-    <a asp-page="Edit">Create New</a>
-</p>
-<!--
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].TargetDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Component)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Paid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Balance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Progress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Contact)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Repair) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TargetDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Component)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Balance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Progress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contact.Name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
--->
+                    </form>
+                </th>
+                <th colspan="2">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].TargetDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Contact)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Repair[0].Progress)
-            </th>
-            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Repair)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TargetDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contact.Name)
-                </td>
-                
-                <td>
-                    @Html.DisplayFor(modelItem => item.Progress)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
-                </td>
-                
+                    <div class="d-grid input-group input-group-lg  ">
+
+                        <a asp-page="./Edit" class="btn btn-success "><i class="fa fa-screwdriver-wrench fa-lg" aria-hidden="true"></i><i class="fa fa-plus fa-lg" aria-hidden="true"></i></a>
+                    </div>
+                </th>
+
             </tr>
-        }
-    </tbody>
-</table>
+            <tr class="border-bottom border-dark">
+                <th class="w-5"><i class="fa-solid fa-hashtag"></i></th>
+                <th class="w-15">Start&nbsp;Date</th>
+                <th class="w-15">Target&nbsp;Date</th>
+                <th class="w-20">Repair&nbsp;Type</th>
+                <th class="w-25">Contact</th>
+                <th class="w-5 text-center">Status</th>
+                <th class="w-10"></th>
+                <th class="w-5 text-center"><i class="fa fa-sticky-note"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                string rowNum = "a";
+            }
+
+            @foreach (var item in Model.RepairList)
+            {
+                rowNum += "1";
+                <tr class="border-bottom">
+                    <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.ID</a></td>
+                    <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.StartDate</a></td>
+                    <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.TargetDate &nbsp;</a></td>
+                    <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.Type</a></td>
+                    <td><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.Contact?.Name</a></td>
+                    <td colspan="2"><a class="d-flex text-decoration-none text-black text-nowrap" asp-page="./Details" asp-route-id="@item.ID">@item.Progress</a></td>
+                    <td class="text-center" data-bs-toggle="collapse" data-bs-target="#@rowNum"><i class="fa fa-chevron-down"></i></td>
+                </tr>
+                
+                <tr class="collapse accordion-collapse" id="@rowNum" data-bs-parent=".table">
+                    <td class="bg-light text-center"><i class="fa-solid fa-arrow-turn-up fa-rotate-90"></i></td>
+                    <td colspan="2" class="bg-light"><strong>Components: </strong> @item.Component</td>
+                    <td colspan="4" class="bg-light"><strong>Description: </strong> @item.Description</td>
+                    <td class="bg-light text-center"><i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

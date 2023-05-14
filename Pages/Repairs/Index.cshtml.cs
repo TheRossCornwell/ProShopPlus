@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProShopPlus.Data;
 using ProShopPlus.Models;
@@ -19,15 +20,38 @@ namespace ProShopPlus.Pages.Repairs
             _context = context;
         }
 
-        public IList<Repair> Repair { get;set; } = default!;
-
+        
+        public List<Repair> RepairList { get; set; } = default!;
+        public List<Contact> ContactList { get; set; } = default!;
         public async Task OnGetAsync()
         {
-            if (_context.Repair != null)
+            //Creating 'contacts & repairs' variable
+            var contacts = from c in _context.Contact
+                           select c;
+            ContactList = await contacts.ToListAsync();
+            var repairs = from c in _context.Repair
+                           select c;
+            repairs = repairs.Where(c => c.ID != 0);
+            //Search function
+            if (!string.IsNullOrEmpty(SearchString))
             {
-                Repair = await _context.Repair
-                .Include(r => r.Contact).ToListAsync();
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                repairs = repairs.Where(c => c.Contact.Name.ToLower().Contains(SearchString.ToLower()));
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
+
+            ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
+            RepairList = await repairs.ToListAsync();
+        }
+
+        // Search Properites
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; } // Search Function variable
+
+
+
+
+            
         }
     }
-}
+
