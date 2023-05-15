@@ -6,7 +6,7 @@
 }
 
 <div class="g-0">
-    <table class="table table-hover accordion table-bordered">
+    <table class="table table-hover accordion table-borderless">
         <thead class="bg-white sticky-top top-0">
             <tr class="">
                 <th colspan="2">
@@ -24,7 +24,7 @@
                 
                 <th colspan="2">
 
-                    <select asp-for="HideList" class="selectpicker form-control input-group-lg" data-style="btn-primary" multiple data-actions-box="true" placeholder="Hide" data-selected-text-format="static" autocomplete="off">
+                    <select asp-for="HideList" class="selectpicker form-control input-group-lg" data-style="btn-outline-secondary" multiple data-actions-box="true" placeholder="Hide" data-selected-text-format="static" autocomplete="off">
                         <option value="[1] New">New</option>
                         <option value="[2] Part Pending">Part Pending</option>
                         <option value="[3] Part Available">Part Available</option>
@@ -78,7 +78,7 @@
                 <tr class="collapse accordion-collapse" id="@rowNum" data-bs-parent=".table">
                     <td class="bg-light text-center"><i class="fa-solid fa-arrow-turn-up fa-rotate-90"></i></td>
                     <td colspan="2" class="bg-light"><strong>Components: </strong> @item.Component</td>
-                    <td colspan="4" class="bg-light"><strong>Description: </strong> @item.Description</td>
+                    <td colspan="5" class="bg-light"><strong>Description: </strong> @item.Description</td>
                     <td class="bg-light text-center"><i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i></td>
                 </tr>
             }
@@ -90,7 +90,7 @@
 <!-- DROP DOWN MENU TESTING-->
 
 
-
+<!--
 
 <form>
 <select  class="selectpicker form-control input-group-lg" data-style="btn-primary" multiple data-actions-box="true" placeholder="View" data-selected-text-format="static" onchange="this.form.submit();">
@@ -105,11 +105,6 @@
 </form>
 
 
-<h1>
-    @Model.HideList</h1>
 
 
-@foreach (var item in Model.HideList)
-{
-    <h1>@item</h1>
-}
+-->
