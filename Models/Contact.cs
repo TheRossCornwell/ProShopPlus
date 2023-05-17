@@ -23,5 +23,6 @@ namespace ProShopPlus.Models
 
 
         public ICollection<Repair>? Repairs { get; set; }
+        public ICollection<Order>? Orders { get; set; }
     }
 }

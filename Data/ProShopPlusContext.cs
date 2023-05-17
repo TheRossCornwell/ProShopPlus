@@ -17,5 +17,7 @@ namespace ProShopPlus.Data
         public DbSet<ProShopPlus.Models.Contact> Contact { get; set; } = default!;
 
         public DbSet<ProShopPlus.Models.Repair> Repair { get; set; } = default!;
+
+        public DbSet<ProShopPlus.Models.Order> Order { get; set; } = default!;
     }
 }
