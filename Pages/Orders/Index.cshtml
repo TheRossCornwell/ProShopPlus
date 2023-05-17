@@ -14,41 +14,24 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].EstimatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].ArrivedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Brand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Product)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].OrderCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Paid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Balance)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Progress)
+                @Html.DisplayNameFor(model => model.Order[0].ID)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Order[0].Contact)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].StartDate)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].EstimatedDate)
+            </th>
+            
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Progress)
+            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -56,41 +39,25 @@
 @foreach (var item in Model.Order) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstimatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArrivedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Balance)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Progress)
+                @Html.DisplayFor(modelItem => item.ID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Contact.Name)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedDate)
+            </td>
+            
+            
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Progress)
+            </td>
+            
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |

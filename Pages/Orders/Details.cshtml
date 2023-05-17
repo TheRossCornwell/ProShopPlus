@@ -5,93 +5,157 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<hr/>
 
-<div>
-    <h4>Order</h4>
+<!-- NEW SECTION -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 mt-1">
+            <h2><i class="fa-solid fa-screwdriver-wrench">&nbsp;&nbsp;Order&nbsp;&nbsp;@Model.Order.ID</i></h2>
+        </div>
+        <div class="col-3 mt-1 text-nowrap">
+            <h4>@Model.Order.Progress</h4>
+        </div>
+        <div class="col-4">
+            <a asp-page="./Edit" asp-route-id="@Model.Order?.ID" class="btn btn-primary d-grid">
+                <h4><i class="fa-solid fa-wrench"></i><strong>&nbsp;UPDATE&nbsp;</strong><i class="fa-solid fa-wrench"></i></h4>
+            </a>
+        </div>
+        <div class="col-1 d-grid">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteOrder">
+                <h4><i class="fa-solid fa-trash"></i></h4>
+            </button>
+        </div>
+        <div class="col-1 d-grid">
+            <a asp-page="./Index" class="btn btn-secondary"><h4><i class="fa-solid fa-toolbox"></i></h4></a>
+        </div>
+    </div>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.StartDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.StartDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.OrderDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.OrderDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.EstimatedDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.EstimatedDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.ArrivedDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.ArrivedDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Brand)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Brand)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Product)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Product)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.OrderCode)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.OrderCode)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Cost)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Cost)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Paid)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Paid)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Balance)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Balance)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Progress)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Progress)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Contact)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Contact.Name)
-        </dd>
+
+    <!-- --- --- --- Table Info --- --- --- -->
+
+    <div class="row">
+        <div class="col-11">
+            <table class="table g-0" style="font-size:large">
+                <thead>
+                    <tr class="text-nowrap">
+                        <th>Start Date:</th>
+                        <th>Name:</th>
+                        <th>Reference Code:</th>
+                        <th>Cost:</th>
+                        <th>Paid:</th>
+                        <th>Balance:</th>
+                    </tr>
+                    <tr class="text-nowrap">
+                        <td>@Model.Order.StartDate</td>
+                        <td>@Model.Contact.Name</td>
+                        <td>@Model.Order.OrderCode</td>
+                        <td>£@Model.Order.Cost</td>
+                        <td>@Model.Order.Paid</td>
+                        <td>£@Model.Order.Balance</td>
+                    </tr>
+                </thead>
+                
+            </table>
+        </div>
+        <div class="col-1">
+            <a class="btn btn-lg btn-info d-block mt-3" asp-page="/Contacts/Details" asp-route-id="@Model.Order.ContactID">
+                <h1><i class="fa-solid fa-user"></i></h1>
+            </a>
+        </div>
+    </div>
+
+    <dl class="row mt-3" style="font-size:x-large">
+        <dt class="col-2">Ordered Date:</dt>
+        <dd class="col-2">@Model.Order.OrderDate</dd>
+
+        <dt class="col-2">Estimated Date:</dt>
+        <dd class="col-2">@Model.Order.EstimatedDate</dd>
+
+        <dt class="col-2">Arrived Date:</dt>
+        <dd class="col-2">@Model.Order.ArrivedDate</dd>
     </dl>
+
+    <dl class="row mt-3" style="font-size:x-large">
+        <dt class="col-1">Brand:</dt>
+        <dd class="col-11">@Model.Order.Brand</dd>
+
+        <dt class="col-12 text-decoration-underline">Product Information:</dt>
+        <dd class="col-12">@Model.Order.Product</dd>
+
+        
+    </dl>
+    
+
 </div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Order?.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteOrder">
-        <h4><i class="fa-solid fa-trash"></i></h4>
-    </button>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProShopPlus.Data;
 using ProShopPlus.Models;
@@ -19,10 +20,12 @@ namespace ProShopPlus.Pages.Orders
             _context = context;
         }
 
-      public Order Order { get; set; } = default!; 
+      public Order Order { get; set; } = default!;
+        public Contact Contact { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
             if (id == null || _context.Order == null)
             {
                 return NotFound();
@@ -35,6 +38,8 @@ namespace ProShopPlus.Pages.Orders
             }
             else 
             {
+                var contact = await _context.Contact.FirstOrDefaultAsync(m => m.ID == order.ContactID);
+                Contact = contact;
                 Order = order;
             }
             return Page();
