@@ -12,14 +12,14 @@
 <div class="container">
     <div class="row">
         <div class="col-3 mt-1">
-            <h2><i class="fa-solid fa-screwdriver-wrench">&nbsp;&nbsp;Order&nbsp;&nbsp;@Model.Order.ID</i></h2>
+            <h2><i class="fa-solid fa-truck-fast">&nbsp;&nbsp;Order&nbsp;&nbsp;@Model.Order.ID</i></h2>
         </div>
         <div class="col-3 mt-1 text-nowrap">
             <h4>@Model.Order.Progress</h4>
         </div>
         <div class="col-4">
             <a asp-page="./Edit" asp-route-id="@Model.Order?.ID" class="btn btn-primary d-grid">
-                <h4><i class="fa-solid fa-wrench"></i><strong>&nbsp;UPDATE&nbsp;</strong><i class="fa-solid fa-wrench"></i></h4>
+                <h4><i class="fa-solid fa-pencil"></i><strong>&nbsp;UPDATE&nbsp;</strong><i class="fa-solid fa-pencil"></i></h4>
             </a>
         </div>
         <div class="col-1 d-grid">
@@ -28,7 +28,7 @@
             </button>
         </div>
         <div class="col-1 d-grid">
-            <a asp-page="./Index" class="btn btn-secondary"><h4><i class="fa-solid fa-toolbox"></i></h4></a>
+            <a asp-page="./Index" class="btn btn-secondary"><h4><i class="fa-solid fa-table-list"></i></h4></a>
         </div>
     </div>
     <hr />
@@ -66,6 +66,8 @@
         </div>
     </div>
 
+<!-- --- --- --- Order Dates --- --- --- -->
+
     <dl class="row mt-3" style="font-size:x-large">
         <dt class="col-2">Ordered Date:</dt>
         <dd class="col-2">@Model.Order.OrderDate</dd>
@@ -76,6 +78,8 @@
         <dt class="col-2">Arrived Date:</dt>
         <dd class="col-2">@Model.Order.ArrivedDate</dd>
     </dl>
+    <hr/>
+<!-- --- --- --- Order Info --- --- --- -->
 
     <dl class="row mt-3" style="font-size:x-large">
         <dt class="col-1">Brand:</dt>
