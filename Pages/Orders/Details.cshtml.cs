@@ -39,5 +39,21 @@ namespace ProShopPlus.Pages.Orders
             }
             return Page();
         }
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null || _context.Order == null)
+            {
+                return NotFound();
+            }
+            var order = await _context.Order.FindAsync(id);
+
+            if (order != null)
+            {
+                Order = order;
+                _context.Order.Remove(Order);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToPage("./Index");
+        }
     }
 }

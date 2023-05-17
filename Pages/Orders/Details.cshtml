@@ -88,4 +88,42 @@
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Order?.ID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteOrder">
+        <h4><i class="fa-solid fa-trash"></i></h4>
+    </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteOrder" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                <button type="button" id="closeBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <h6> Are you sure you want to remove this repair? </h6>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

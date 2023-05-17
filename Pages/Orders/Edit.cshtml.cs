@@ -27,29 +27,37 @@ namespace ProShopPlus.Pages.Orders
         {
             if (id == null || _context.Order == null)
             {
-                return NotFound();
+                Order = new Order();
             }
-
-            var order =  await _context.Order.FirstOrDefaultAsync(m => m.ID == id);
-            if (order == null)
+            else
             {
-                return NotFound();
+                var order =  await _context.Order.FirstOrDefaultAsync(m => m.ID == id);
+                if (order == null)
+                {
+                    return NotFound();
+                }
+                Order = order;
             }
-            Order = order;
-           ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
-            return Page();
+            ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
+           return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            _context.Attach(Order).State = EntityState.Modified;
+            if (id == null)
+            {
+                _context.Order.Add(Order);
+            }
+            else
+            {
+                _context.Attach(Order).State = EntityState.Modified;
+            }
 
             try
             {
