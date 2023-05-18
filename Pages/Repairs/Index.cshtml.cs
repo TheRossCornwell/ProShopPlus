@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProShopPlus.Data;
 using ProShopPlus.Models;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace ProShopPlus.Pages.Repairs
 {
@@ -60,6 +61,7 @@ namespace ProShopPlus.Pages.Repairs
             }
 
             ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
+            repairs = repairs.OrderBy(c => c.StartDate);
             RepairList = await repairs.ToListAsync();
         }
 

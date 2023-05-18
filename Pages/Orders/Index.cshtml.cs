@@ -20,15 +20,16 @@ namespace ProShopPlus.Pages.Orders
             _context = context;
         }
 
-        public IList<Order> Order { get;set; } = default!;
+        public IList<Order> Order { get; set; } = default!;
 
-        public List<Order> OrderList { get;set; } = default!;
+        public List<Order> OrderList { get; set; } = default!;
         public List<Contact> ContactList { get; set; } = default!;
+
 
         public async Task OnGetAsync()
         {
             var orders = from c in _context.Order
-                          select c;
+                         select c;
 
 
             orders = orders.Where(c => !HideList.Contains(c.Progress));
@@ -47,6 +48,8 @@ namespace ProShopPlus.Pages.Orders
             }
 
             ViewData["ContactID"] = new SelectList(_context.Contact, "ID", "Name");
+
+            orders = orders.OrderBy(c => c.StartDate);
             OrderList = await orders.ToListAsync();
         }
 

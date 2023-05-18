@@ -17,18 +17,18 @@
                 <th colspan="4">
                     <div class="input-group input-group-lg">
                         <!--  -->
-                        <input type="text" class="form-control"  placeholder="Search Name" aria-label="Search Name" aria-describedby="button-addon2">
+                        <input asp-for="SearchString" type="text" class="form-control"  placeholder="Search Name" aria-label="Search Name" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="submit" value="search" id="button-addon2"><i class="fa fa-search"></i></button>
 
                     </div>
                 </th>
                 <th colspan="1">
-                    <select  class="selectpicker form-control input-group-lg" data-style="btn-outline-secondary" multiple  placeholder="Hide" data-selected-text-format="static" autocomplete="off">
+                    <select asp-for="HideList" class="selectpicker form-control input-group-lg" data-style="btn-outline-secondary" multiple  placeholder="Hide" data-selected-text-format="static" autocomplete="off">
                         <option value="[1] New">New</option>
                         <option value="[2] Ordered">Ordered</option>
                         <option value="[3] Arrived">Arrived</option>
                         <option value="[4] Contacted">Contacted</option>
-                        <option value="[5] Collected">Collected</option>
+                        <option value="[5] Collected" selected>Collected</option>
                         <option value="[6] Problem">Problem</option>
                     </select>
                 </th>
