@@ -58,6 +58,188 @@
         </div>
     </div>
 </div>
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                REPAIRS Active
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordation-collapse collapse show">
+            <div class="accordion-body">
+                
+                <table class="table g-0">
+                    <thead>
+                        <tr class="text-nowrap">
+                            <th>#</th>
+                            <th>Start Date:</th>
+                            <th>Type:</th>
+                            <th>Progress:</th>
+                            <th>Target Date:</th>
+                            <th>Paid:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.RepairList)
+                        {
+                            <tr class="border-bottom">
+                                <td>@item.ID</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.Type</td>
+                                <td>@item.Progress</td>
+                                <td>@item.TargetDate &nbsp;</td>
+                                <td>@item.Paid</td>
+                                <td><a asp-page="/Repairs/Details" asp-route-id="@item.ID">View</a></td>
+                            </tr>   
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                ORDERS Active
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordation-collapse collapse show">
+            <div class="accordion-body">
+                <table class="table g-0">
+                    <thead>
+                        <tr class="text-nowrap">
+                            <th>#</th>
+                            <th>Start Date:</th>
+                            <th>Brand:</th>
+                            <th>Status:</th>
+                            <th>Target Date:</th>
+                            <th>Paid:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderList)
+                        {
+                            <tr class="border-bottom">
+                                <td>@item.ID</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.Brand</td>
+                                <td>@item.Progress</td>
+                                <td>@item.EstimatedDate &nbsp;</td>
+                                <td>@item.Paid</td>
+                                <td><a asp-page="/Orders/Details" asp-route-id="@item.ID">View</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<div class="accordion" id="accordionExample2">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                REPAIRS Complete
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordation-collapse collapse ">
+            <div class="accordion-body">
+
+                <table class="table g-0">
+                    <thead>
+                        <tr class="text-nowrap">
+                            <th>#</th>
+                            <th>Start Date:</th>
+                            <th>Type:</th>
+                            <th>Progress:</th>
+                            <th>Target Date:</th>
+                            <th>Paid:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CompleteRepairList)
+                        {
+                            <tr class="border-bottom">
+                                <td>@item.ID</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.Type</td>
+                                <td>@item.Progress</td>
+                                <td>@item.TargetDate &nbsp;</td>
+                                <td>@item.Paid</td>
+                                <td><a asp-page="/Repairs/Details" asp-route-id="@item.ID">View</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                ORDERS Complete
+            </button>
+        </h2>
+        <div id="collapseFour" class="accordation-collapse collapse ">
+            <div class="accordion-body">
+                <table class="table g-0">
+                    <thead>
+                        <tr class="text-nowrap">
+                            <th>#</th>
+                            <th>Start Date:</th>
+                            <th>Brand:</th>
+                            <th>Status:</th>
+                            <th>Target Date:</th>
+                            <th>Paid:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CompleteOrderList)
+                        {
+                            <tr class="border-bottom">
+                                <td>@item.ID</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.Brand</td>
+                                <td>@item.Progress</td>
+                                <td>@item.EstimatedDate &nbsp;</td>
+                                <td>@item.Paid</td>
+                                <td><a asp-page="/Orders/Details" asp-route-id="@item.ID">View</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

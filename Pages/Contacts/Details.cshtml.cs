@@ -19,7 +19,11 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             _context = context;
         }
 
-      public Contact Contact { get; set; } = default!; 
+      public Contact Contact { get; set; } = default!;
+        public List<Repair> RepairList { get; set; } = default!;
+        public List<Repair> CompleteRepairList { get; set; } = default!;
+        public List<Order> OrderList { get; set; } = default!;
+        public List<Order> CompleteOrderList { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,6 +40,25 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             else 
             {
                 Contact = contact;
+                var repairs = from r in _context.Repair
+                              where r.ContactID == contact.ID
+                              select r;
+                repairs = repairs.OrderBy(r => r.StartDate);
+                var activeRepairs = repairs.Where(c => !RepairProgressValue.Contains(c.Progress));
+                var completeRepairs = repairs.Where(c => RepairProgressValue.Contains(c.Progress));
+                RepairList = await activeRepairs.ToListAsync();
+                CompleteRepairList = await completeRepairs.ToListAsync();
+
+                var orders = from o in _context.Order
+                             where o.ContactID == contact.ID
+                             select o;
+                orders = orders.OrderBy(o => o.StartDate);
+                var activeOrders = orders.Where(o => !OrderProgressValue.Contains(o.Progress));
+                var completeOrder = orders.Where(o => OrderProgressValue.Contains(o.Progress));
+                OrderList = await activeOrders.ToListAsync();
+                CompleteOrderList = await completeOrder.ToListAsync();
+
+
             }
             return Page();
         }
@@ -55,6 +78,9 @@ namespace ProShopPlus.Pages.Contacts.Contacts
             }
             return RedirectToPage("./Index");
         }
+
+        public string RepairProgressValue = "[7] Collected";
+        public string OrderProgressValue = "[5] Collected";
 
     }
 }
