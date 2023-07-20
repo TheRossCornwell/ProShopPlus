@@ -5,7 +5,7 @@
     ViewData["Title"] = "Details";
 }
 
-
+<!-- OLD HEADER 
 <div class="container-fluid g-0">
     <div class="row">
         <div class="col-6">
@@ -20,44 +20,12 @@
         </div>
     </div>
 
-    <div class="row mt-1">
+ </div> -->
+ 
 
 
+<!-- ACCORDION STUFF 
 
-
-<div class="position-relative g-0">
-<table class="table g-0">
-    <thead class="table-light">
-        <tr>
-            <th>Phone Number</th>
-            <th>Extra Number</th>
-            <th></th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.Contact?.PhoneNumber</td>
-            <td>@Model.Contact?.AltPhoneNumber</td>
-            <td> </td>
-        </tr>
-    </tbody>
-</table>
-<table class="table">
-    <thead class="table-light">
-        <tr>
-            <th>Contact Notes</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.Contact?.Notes</td>
-        </tr>
-    </tbody>
-</table>
-        </div>
-    </div>
-</div>
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header">
@@ -187,6 +155,7 @@
             <div class="accordion-body">
                 <table class="table g-0">
                     <thead>
+                        
                         <tr class="text-nowrap">
                             <th>#</th>
                             <th>Start Date:</th>
@@ -218,31 +187,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-->
 
 
 
@@ -275,3 +220,370 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="~/css/testSite.css" asp-append-version="true" />
+
+<div class="adminWrapper">
+    <header>
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="header-icon">
+                        <i class="fa fa fa-lg fa-user"></i>
+                    </span>
+
+                    <div class="header-title">
+                        <h1>
+                            <div class="memberInfo">@Model.Contact?.Name <small>@Model.Contact?.ID</small> </div>
+                        </h1>
+
+
+                    </div>
+                </div>
+                <!--
+                <div class="col-md-8 header-right noprint">
+                    <form action="/membership_search.php" method="get" style="text-align:right">
+                        <input class="form-control autocomplete" type="text" placeholder="Search for membership # or name" size="35" data-autocomplete="playersearch" id="autoplayersearch" value="" data-include-inactive="1" name="string" autocomplete="off">
+                    </form>
+                    <script>
+                        $(document).ready(function () {
+                            $("#autoplayersearch").focus();
+                        });
+                    </script>
+                </div>
+                -->
+            </div>
+
+
+
+            <!-- TAB BAR FOR THE FURTURE RESEARCH NEEDED  
+            <div class="tabsWrapper noprint">
+                <ul class="tabList">
+                    <li class="current  navtab-overview">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=overview" target=""><span class="tabInner">Overview</span></a></div>
+
+                    </li>
+                    <li class="  navtab-subscription">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=subscription" target=""><span class="tabInner">Subscription</span></a></div>
+
+                    </li>
+                    <li class="  navtab-accounts">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=accounts" target=""><span class="tabInner">Statement</span></a></div>
+
+                    </li>
+                    <li class="  navtab-payments">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=payments" target=""><span class="tabInner">Bills &amp; Payments</span></a></div>
+
+                    </li>
+                    <li class="  navtab-epos">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=epos" target=""><span class="tabInner">EPOS Account</span></a></div>
+
+                    </li>
+                    <li class="  navtab-notes">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=notes" target=""><span class="tabInner">Notes <span class="updatenum updatenum-zero">0</span></span></a></div>
+
+                    </li>
+                    <li class="  navtab-email">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=email" target=""><span class="tabInner"><span class="ig-icon ig-icon-envelope-white"><span class="iconInner"></span></span>Contact</span></a></div>
+
+                    </li>
+                    <li class=" rightTab navtab-log">
+                        <div class="tabLinkWrapper"><a href="/member.php?memberid=77717&amp;tab=log" target=""><span class="tabInner">Logs</span></a></div>
+
+                    </li>
+                </ul>
+            </div>
+            -->
+            
+        </div> <!-- end topLeft -->
+    </header>
+
+    <div class="container">
+
+        <!-- Breadcrumbs -->
+        <div class="rightLinksWrapper" style="">
+            <ul class="rightLinks">
+            </ul>
+        </div>
+        <div class="breadcrumbsWrapper">
+            <p class="breadcrumbs">
+                <a href="./Index">Contacts</a> &gt;  <a href="Details?id=@Model.Contact?.ID">@Model.Contact?.Name</a>
+            </p>
+        </div>
+        
+        <!-- Contact Info Section -->
+        <form>
+            <div class="row">
+                <div class="col-sm-4">
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Contact Info</span></span></h3>
+                        <div class="links">
+                             <a asp-page="./Edit" asp-route-id="@Model.Contact?.ID" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;">Update</a>
+                             <a href="#" class="btn btn-danger" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;" data-bs-toggle="modal" data-bs-target="#deleteContact">Delete</a>
+                        </div>
+                        <div class="slateContent">
+                            <div id="member_personal_area">
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan=""><strong>Name</strong></td>
+                                            <td>@Model.Contact?.Name</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Contact ID</strong></td>
+                                            <td>@Model.Contact?.ID</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Phone Number</strong></td>
+                                            <td>@Model.Contact?.PhoneNumber</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Extra Number</strong></td>
+                                            <td>@Model.Contact?.AltPhoneNumber</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Notes</strong></td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                @Model.Contact?.Notes
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+                </div>
+
+                <div class="col-sm-8">
+
+                    <!--        REPAIRS SECTION     -->
+                    <section class="slate">
+
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Repairs</span></span></h3>
+                        <div class="links">
+                            <a asp-page="/Repairs/Edit" class="btn btn-primary"  style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;">
+                                <i class="fa fa-plus-circle"></i>Add Repair &nbsp;
+                            </a>
+                            
+                        </div>
+                        <div class="slateContent">
+                            <div id="member_memstatus_area">
+                                <table class="admin" style="width: 100%">
+
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">Active</th>
+                                        </tr>
+                                        <tr class="text-nowrap">
+                                            <th class="w-10">#</th>
+                                            <th class="w-15">Start Date:</th>
+                                            <th class="w-15">Target Date:</th>
+                                            <th class="w-25">Type:</th>
+                                            <th class="w-25">Progress:</th>
+                                            <th class="w-10">&nbsp;</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.RepairList)
+                                        {
+                                            <tr class="border-bottom">
+                                                <td>@item.ID</td>
+                                                <td>@item.StartDate</td>
+                                                <td>@item.TargetDate</td>
+                                                <td>@item.Type</td>
+                                                <td>@item.Progress</td>
+                                                
+                                                <td><a asp-page="/Repairs/Details" asp-route-id="@item.ID">View</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    
+                                </table>
+
+                                <table class="admin" style="width: 100%">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">Finished</th>
+                                        </tr>
+                                        <tr class="text-nowrap">
+                                            <th class="w-10">#</th>
+                                            <th class="w-15">Start Date:</th>
+                                            <th class="w-15">Target Date:</th>
+                                            <th class="w-25">Type:</th>
+                                            <th class="w-25">Progress:</th>
+                                            <th class="w-10">&nbsp;</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.CompleteRepairList)
+                                        {
+                                            <tr class="border-bottom">
+                                                <td>@item.ID</td>
+                                                <td>@item.StartDate</td>
+                                                <td>@item.TargetDate</td>
+                                                <td>@item.Type</td>
+                                                <td>@item.Progress</td>
+                                                
+                                                
+                                                <td><a asp-page="/Repairs/Details" asp-route-id="@item.ID">View</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!--        ORDERS SECTION     -->
+                    <section class="slate">
+
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Orders</span></span></h3>
+                        <div class="links">
+                            <a asp-page="/Orders/Edit" class="btn btn-primary" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;">
+                                <i class="fa fa-plus-circle"></i>Add Order &nbsp;
+                            </a>
+                        </div>
+                        <div class="slateContent">
+                            <div id="member_memstatus_area">
+                                <table class="admin" style="width: 100%">
+
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">Active</th>
+                                        </tr>
+                                        <tr class="text-nowrap">
+                                            <th class="w-10">#</th>
+                                            <th class="w-15">Start Date:</th>
+                                            <th class="w-15">Target Date:</th>
+                                            <th class="w-15">Arrived Date:</th>
+                                            <th class="w-20">Brand:</th>
+                                            <th class="w-20">Status:</th>
+                                            <th class="w-5">&nbsp;</th>
+                                            
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.OrderList)
+                                        {
+                                            <tr class="border-bottom">
+                                                <td>@item.ID</td>
+                                                <td>@item.StartDate</td>
+                                                <td>@item.EstimatedDate</td>
+                                                <td>@item.ArrivedDate</td>
+                                                <td>@item.Brand</td>
+                                                <td>@item.Progress</td>
+                                                
+                                                
+                                                <td><a asp-page="/Orders/Details" asp-route-id="@item.ID">View</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+
+                                <table class="admin" style="width: 100%">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">Finished</th>
+                                        </tr>
+                                        <tr class="text-nowrap">
+                                            <th class="w-10">#</th>
+                                            <th class="w-15">Start Date:</th>
+                                            <th class="w-15">Target Date:</th>
+                                            <th class="w-15">Arrived Date:</th>
+                                            <th class="w-20">Brand:</th>
+                                            <th class="w-20">Status:</th>
+                                            <th class="w-5">&nbsp;</th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.CompleteOrderList)
+                                        {
+                                            <tr class="border-bottom">
+                                                <td>@item.ID</td>
+                                                <td>@item.StartDate</td>
+                                                <td>@item.EstimatedDate</td>
+                                                <td>@item.ArrivedDate</td>
+                                                <td>@item.Brand</td>
+                                                <td>@item.Progress</td>
+
+
+                                                <td><a asp-page="/Orders/Details" asp-route-id="@item.ID">View</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        </form>
+
+        <div style="clear:both"></div>
+    </div>
+</div>
