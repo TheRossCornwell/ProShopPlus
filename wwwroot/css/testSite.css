@@ -1151,7 +1151,7 @@ table.table-small th {
         content: '\f0dd';
     }
 }
-
+/*
 @media (min-width: 768px) {
     .modal-dialog {
         display: flex;
@@ -1213,7 +1213,7 @@ table.table-small th {
 .modal-footer {
     background-color: #444;
 }
-
+*/
 /* Utility styles & Random fixes added by Mark or Andy */
 .numeric {
     text-align: right;
