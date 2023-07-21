@@ -485,14 +485,12 @@ header {
 
 /* Page footer */
 footer {
-    padding: 30px 0 50px;
+    
     color: #eee;
     background-color: #444;
 }
 
-    footer .container > .row > :last-child {
-        text-align: right;
-    }
+
 
 /* Javascript-generated styles */
 .slate-heading-frame {
