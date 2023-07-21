@@ -25,6 +25,8 @@ namespace ProShopPlus.Pages.Contacts.Contacts
         public List<Order> OrderList { get; set; } = default!;
         public List<Order> CompleteOrderList { get; set; } = default!;
 
+        public int RepairViewID { get; set; } = default!;
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Contact == null)
@@ -48,6 +50,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
                 var completeRepairs = repairs.Where(c => RepairProgressValue.Contains(c.Progress));
                 RepairList = await activeRepairs.ToListAsync();
                 CompleteRepairList = await completeRepairs.ToListAsync();
+                
 
                 var orders = from o in _context.Order
                              where o.ContactID == contact.ID

@@ -290,7 +290,7 @@ header {
     z-index: 2;
     position: relative;
     /* background: #A2BE57 url(/images/admin-mainheader-bg.jpg) center top no-repeat; */
-    background: #A2BE57;
+    background: #1b85b8;
     color: #fff;
 }
 
@@ -1347,7 +1347,7 @@ div.user-messages ul.unstyled li {
 }
 
 .btn-success {
-    background-color: #87BC44;
+    background-color: #87BC34;
 }
 
 .btn-group {
