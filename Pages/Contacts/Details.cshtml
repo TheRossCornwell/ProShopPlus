@@ -199,7 +199,7 @@
         <div class="container">
             
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="header-icon">
                         <i class="fa fa fa-lg fa-user"></i>
                     </span>
@@ -287,6 +287,7 @@
         <form>
             <div class="row">
                 <div class="col-sm-4">
+                    <!--    Contact Information     -->
                     <section class="slate">
                         <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Contact Info</span></span></h3>
                         <div class="links">
@@ -328,6 +329,53 @@
                         </div>
                     </section>
 
+                    <!-- Lesson Template-->
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame">
+                            <span class="slate-heading-slant"></span>
+                            <span class="title">Lessons</span></span></h3>
+
+                        <div class="slateContent">
+                            <div id="member_lesson_area">
+                                <strong>Active:</strong>
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Start</strong></td>
+                                            <td>30/12/2023</td>
+                                            <td><strong>Plan</strong></td>
+                                            <td>Gold Hour Plan</td>
+                                            <td>View</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>ID</strong>23</td>
+                                            <td><strong>Paid</strong></td>
+                                            <td> YES </td>
+                                            <td><strong>Complete</strong></td>
+                                            <td> NO </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Notes</strong></td>
+                                            <td colspan="4">Here is my Note Blah</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <strong>Finished:</strong>
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Start</strong></td>
+                                            <td>30/12/2023</td>
+                                            <td><strong>Plan</strong></td>
+                                            <td>Gold Hour Plan</td>
+                                            <td>View</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
 
 
 
@@ -536,7 +584,7 @@
                                             <tr class="collapse accordion-collapse" id="@rowNumC" data-bs-parent=".table">
                                                 <td class="bg-light"><i class="fa-solid fa-arrow-turn-up fa-rotate-90"></i></td>
                                                 <td colspan="1" class="bg-light"><strong>Product Info:</strong></td>
-                                                <td colspan="5" class="bg-light">@item.Product</td>
+                                                <td colspan="5" class="bg-light" style="white-space: pre-wrap;">@item.Product</td>
                                                 <td class="bg-light text-end"><i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i></td>
                                             </tr>
                                         }
@@ -569,7 +617,7 @@
                                         }
                                         @foreach (var item in Model.CompleteOrderList)
                                         {
-                                            rowNumC += '1';
+                                            rowNumD += '1';
                                             <tr class="border-bottom">
                                                 <td>@item.ID</td>
                                                 <td>@item.StartDate</td>
@@ -605,7 +653,7 @@
                                             <tr class="collapse accordion-collapse" id="@rowNumD" data-bs-parent=".table">
                                                 <td class="bg-light"><i class="fa-solid fa-arrow-turn-up fa-rotate-90"></i></td>
                                                 <td colspan="1" class="bg-light"><strong>Product Info:</strong></td>
-                                                <td colspan="5" class="bg-light">@item.Product</td>
+                                                <td colspan="5" class="bg-light" style="white-space: pre-wrap;">@item.Product</td>
                                                 <td class="bg-light text-end"><i class="fa-solid fa-arrow-turn-down fa-rotate-90"></i></td>
                                             </tr>
                                         }

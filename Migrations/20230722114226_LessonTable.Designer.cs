@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProShopPlus.Data;
 
@@ -10,9 +11,11 @@ using ProShopPlus.Data;
 namespace ProShopPlus.Migrations
 {
     [DbContext(typeof(ProShopPlusContext))]
-    partial class ProShopPlusContextModelSnapshot : ModelSnapshot
+    [Migration("20230722114226_LessonTable")]
+    partial class LessonTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
@@ -49,10 +52,6 @@ namespace ProShopPlus.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Coach")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("Complete")
                         .HasColumnType("INTEGER");
