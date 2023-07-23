@@ -24,6 +24,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
         public List<Repair> CompleteRepairList { get; set; } = default!;
         public List<Order> OrderList { get; set; } = default!;
         public List<Order> CompleteOrderList { get; set; } = default!;
+        public List<Lesson> LessonList { get; set; } = default!;
 
         public int RepairViewID { get; set; } = default!;
 
@@ -61,7 +62,11 @@ namespace ProShopPlus.Pages.Contacts.Contacts
                 OrderList = await activeOrders.ToListAsync();
                 CompleteOrderList = await completeOrder.ToListAsync();
 
-
+                var lessons = from l in _context.Lesson
+                              where l.ContactID == contact.ID
+                              select l;
+                lessons = lessons.OrderBy(l => l.StartDate);
+                LessonList = await lessons.ToListAsync();
             }
             return Page();
         }

@@ -340,24 +340,26 @@
                                 <strong>Active:</strong>
                                 <table class="admin" style="width: 100%">
                                     <tbody>
+                                        @foreach (var item in Model.LessonList)
+                                        {
                                         <tr>
-                                            <td><strong>Start</strong></td>
-                                            <td>30/12/2023</td>
-                                            <td><strong>Plan</strong></td>
-                                            <td>Gold Hour Plan</td>
-                                            <td>View</td>
+                                            <th>Start</th>
+                                            <td>@item.StartDate</td>
+                                            <th>Plan</th>
+                                            <td>@item.Plan</td>
+                                                <td><a asp-page="/Lessons/Details" asp-route-id="@item.ID">View</a></td>
                                         </tr>
                                         <tr>
-                                            <td><strong>ID</strong>23</td>
-                                            <td><strong>Paid</strong></td>
-                                            <td> YES </td>
-                                            <td><strong>Complete</strong></td>
-                                            <td> NO </td>
+                                            <th>Coach</th>
+                                            <td>@item.Coach</td>
+                                            <th>Paid</th>
+                                            <td>@item.Paid</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Notes</strong></td>
-                                            <td colspan="4">Here is my Note Blah</td>
+                                            <td colspan="4">@item.Note</td>
                                         </tr>
+                                        }
                                     </tbody>
                                 </table>
 
