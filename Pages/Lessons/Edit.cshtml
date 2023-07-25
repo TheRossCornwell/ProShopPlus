@@ -26,12 +26,29 @@
             </div>
             <div class="form-group">
                 <label asp-for="Lesson.Coach" class="control-label"></label>
-                <input asp-for="Lesson.Coach" class="form-control" />
+
+                <select asp-for="Lesson.Coach" class="form-control" placeholder="select coach">
+                    <option selected disabled>Please select</option>
+                    <option>Richard</option>
+                    <option>Steve</option>
+                    <option>Denise</option>
+                    <option>Seb</option>
+                    <option>Other</option>
+
+                </select>
                 <span asp-validation-for="Lesson.Coach" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Lesson.Plan" class="control-label"></label>
-                <input asp-for="Lesson.Plan" class="form-control" />
+                <select asp-for="Lesson.Plan" class="form-control">
+                    <option selected disabled>Please select</option>
+                    <option>30m Silver</option>
+                    <option>30m Gold</option>
+                    <option>1hr Silver</option>
+                    <option>1hr Gold</option>
+                    <option>Custom</option>
+
+                </select>
                 <span asp-validation-for="Lesson.Plan" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,12 +58,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Lesson.Paid" class="control-label"></label>
-                <input asp-for="Lesson.Paid" class="form-control" />
+                <select asp-for="Lesson.Paid" class="form-control">
+                    <option>False</option>
+                    <option>True</option>
+
+                </select>
+
                 <span asp-validation-for="Lesson.Paid" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Lesson.Complete" class="control-label"></label>
-                <input asp-for="Lesson.Complete" class="form-control" />
+                <select asp-for="Lesson.Complete" class="form-control">
+                    <option>False</option>
+                    <option>True</option>
+
+                </select>
+
                 <span asp-validation-for="Lesson.Complete" class="text-danger"></span>
             </div>
             <div class="form-group">

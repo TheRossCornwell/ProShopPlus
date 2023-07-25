@@ -32,12 +32,12 @@ namespace ProShopPlus.Models
         
         public string? Note { get; set; }
 
-        
-        
+
+
         [DisplayName("Paid")]
-        public bool? Paid { get; set; }
+        public bool? Paid { get; set; } = default!;
         [DisplayName("Complete")]
-        public bool? Complete { get; set; }
+        public bool? Complete { get; set; } = default!;
 
         
         public Contact? Contact { get; set; }
