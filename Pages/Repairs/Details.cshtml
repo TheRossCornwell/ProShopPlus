@@ -6,10 +6,9 @@
 }
 
 
-<hr/>
-
+ 
 <!-- --- --- --- Header --- --- --- -->
-
+<!--
 <div class="container">
     <div class="row">
         <div class="col-3 mt-1">
@@ -33,9 +32,9 @@
         </div>
     </div>
     <hr />
-
+-->
 <!-- --- --- --- Table Info --- --- --- -->
-
+<!--
     <div class="row">
         <div class="col-11">
             <table class="table g-0" style="font-size:large">
@@ -65,9 +64,9 @@
             </a>
         </div>
     </div>
-
+    -->
 <!-- --- --- --- Repair Info --- --- --- -->
-
+<!--
     <dl class="row" style="font-size:x-large">
         <dt class="col-2">Repair Type:</dt>
         <dd class="col-10">@Model.Repair.Type</dd>
@@ -81,25 +80,7 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-->
 
 
 
@@ -126,4 +107,178 @@
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+
+<link rel="stylesheet" href="~/css/PSPCustom.css" asp-append-version="true" />
+
+<div class="adminWrapper">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="header-icon">
+                        <i class="fa fa fa-lg fa-screwdriver-wrench"></i>
+                    </span>
+                
+                    <div class="header-title">
+                        <h1>
+                            <div class="memberInfo">REPAIR&nbsp;&nbsp;@Model.Repair.ID</div>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="rightLinksWrapper" style="">
+            <ul class="rightLinks">
+            </ul>
+        </div>
+        <div class="breadcrumbsWrapper">
+            <p class="breadcrumbs">
+                <a href="./Index">Repair List</a> &gt;  <a href="Details?id=@Model.Repair?.ID">Repair @Model.Repair?.ID</a>
+            </p>
+        </div>
+
+        <!-- Repair Info Section -->
+        <form>
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- Contact Info -->
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Contact Info</span></span></h3>
+                        <div class="links">
+                            <a asp-page="/Contacts/Details" asp-route-id="@Model.Contact?.ID" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;">View</a>
+                            
+                        </div>
+                        <div class="slateContent">
+                            <div id="member_personal_area">
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan=""><strong>Name</strong></td>
+                                            <td>@Model.Contact?.Name</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td colspan=""><strong>Phone Number</strong></td>
+                                            <td>@Model.Contact?.PhoneNumber</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Extra Number</strong></td>
+                                            <td>@Model.Contact?.AltPhoneNumber</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Payment Info -->
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Payment Info</span></span></h3>
+                        
+                        <div class="slateContent">
+                            <div id="member_personal_area">
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan=""><strong>Cost:</strong></td>
+                                            <td>£@Model.Repair?.Cost</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan=""><strong>Paid:</strong></td>
+                                            <td>@Model.Repair?.Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Balance:</strong></td>
+                                            <td>£@Model.Repair?.Balance</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <div class="col-sm-9">
+                    <!-- repair Info -->
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Repair Info</span></span></h3>
+                        <div class="links">
+                            <a asp-page="./Edit" asp-route-id="@Model.Repair?.ID" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;">Update</a>
+                            <a href="#" class="btn btn-danger" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;" data-bs-toggle="modal" data-bs-target="#deleteRepair">Delete</a>
+                        </div>
+                        <div class="slateContent">
+                            <div id="member_personal_area">
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <th class="w-10">Start Date:</th>
+                                            <td colspan="" class="w-10">@Model.Repair?.StartDate</td>
+                                            <td class="w-5"></td>
+                                            <th class="w-12">Target Date:</th>
+                                            
+                                            <td>@Model.Repair?.TargetDate</td>
+                                        </tr>
+                                        <tr style="font-size:x-large">
+                                            <th colspan="2">Repair Type:</th>
+                                            <td colspan="4">@Model.Repair?.Type</td>
+                                        </tr>
+                                        <tr style="font-size:x-large">
+                                            <th colspan="2">Components:</t>
+                                            <td colspan="4">@Model.Repair?.Component</td>
+                                        </tr>
+                                        <tr style="font-size:x-large">
+                                            <th colspan="2">Description:</th>
+                                            <td colspan="4">@Model.Repair?.Description</td>
+                                        </tr>
+                                        
+                                        <tr style="font-size:x-large">
+                                            <th colspan="2">Progress:</th>
+                                            <td colspan="4">@Model.Repair?.Progress</td>
+                                        </tr>
+                                        <tr>
+                                            <td> &nbsp;</td>
+                                        </tr>
+                                        <tr style="font-size:x-large">
+                                            
+                                            <td colspan="5">
+                                                <a asp-page="./Edit" asp-route-id="@Model.Repair?.ID" class="btn btn-primary d-grid">
+                                                    <h4><i class="fa-solid fa-wrench"></i><strong>&nbsp;UPDATE&nbsp;</strong><i class="fa-solid fa-wrench"></i></h4>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>

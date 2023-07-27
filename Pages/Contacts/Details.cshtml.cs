@@ -25,6 +25,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
         public List<Order> OrderList { get; set; } = default!;
         public List<Order> CompleteOrderList { get; set; } = default!;
         public List<Lesson> LessonList { get; set; } = default!;
+        public List<Lesson> CompleteLessonList { get; set; } = default!;
 
         public int RepairViewID { get; set; } = default!;
 
@@ -66,7 +67,10 @@ namespace ProShopPlus.Pages.Contacts.Contacts
                               where l.ContactID == contact.ID
                               select l;
                 lessons = lessons.OrderBy(l => l.StartDate);
-                LessonList = await lessons.ToListAsync();
+                var activeLessons = lessons.Where(l => l.Complete == true);
+                var endedLessons = lessons.Where(l => l.Complete != true);
+                LessonList = await activeLessons.ToListAsync();
+                CompleteLessonList = await endedLessons.ToListAsync();
             }
             return Page();
         }
@@ -89,6 +93,7 @@ namespace ProShopPlus.Pages.Contacts.Contacts
 
         public string RepairProgressValue = "[7] Collected";
         public string OrderProgressValue = "[5] Collected";
+        public bool LessonComplete = true;
 
     }
 }

@@ -343,8 +343,12 @@
 
                         <div class="slateContent">
                             <div id="member_lesson_area">
-                                <strong>Active:</strong>
                                 <table class="admin" style="width: 100%">
+                                    <thead class="border-bottom border-dark">
+                                        <tr>
+                                        <th colspan="5" class="text-center">Active</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         @foreach (var item in Model.LessonList)
                                         {
@@ -361,24 +365,45 @@
                                             <th>Paid</th>
                                             <td>@item.Paid</td>
                                         </tr>
-                                        <tr>
-                                            <td><strong>Notes</strong></td>
+                                            <tr class="border-bottom">
+                                            <th>Notes:</th>
                                             <td colspan="4">@item.Note</td>
                                         </tr>
                                         }
                                     </tbody>
                                 </table>
 
-                                <strong>Finished:</strong>
+                                
                                 <table class="admin" style="width: 100%">
-                                    <tbody>
+
+                                    <thead class="border-bottom border-dark">
                                         <tr>
-                                            <td><strong>Start</strong></td>
-                                            <td>30/12/2023</td>
-                                            <td><strong>Plan</strong></td>
-                                            <td>Gold Hour Plan</td>
-                                            <td>View</td>
+                                        <th colspan="5" class="text-center">Finished</th>
                                         </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        
+                                        @foreach (var item in Model.CompleteLessonList)
+                                        {
+                                            <tr>
+                                                <th>Start</th>
+                                                <td>@item.StartDate</td>
+                                                <th>Plan</th>
+                                                <td>@item.Plan</td>
+                                                <td><a asp-page="/Lessons/Details" asp-route-id="@item.ID">View</a></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Coach</th>
+                                                <td>@item.Coach</td>
+                                                <th>Paid</th>
+                                                <td>@item.Paid</td>
+                                            </tr>
+                                            <tr class="border-bottom">
+                                                <th>Notes:</th>
+                                                <td colspan="4">@item.Note</td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
