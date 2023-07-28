@@ -5,9 +5,9 @@
     ViewData["Title"] = "Details";
 }
 
-<hr/>
 
-<!-- NEW SECTION -->
+
+<!-- NEW SECTION --
 
 <div class="container">
     <div class="row">
@@ -31,9 +31,9 @@
             <a asp-page="./Index" class="btn btn-secondary"><h4><i class="fa-solid fa-table-list"></i></h4></a>
         </div>
     </div>
-    <hr />
+    <hr />-->
 
-    <!-- --- --- --- Table Info --- --- --- -->
+    <!-- --- --- --- Table Info --- --- --- --
 
     <div class="row">
         <div class="col-11">
@@ -64,9 +64,9 @@
                 <h1><i class="fa-solid fa-user"></i></h1>
             </a>
         </div>
-    </div>
+    </div>-->
 
-<!-- --- --- --- Order Dates --- --- --- -->
+<!-- --- --- --- Order Dates --- --- --- --
 
     <dl class="row mt-3" style="font-size:x-large">
         <dt class="col-2">Ordered:</dt>
@@ -78,8 +78,8 @@
         <dt class="col-2">Arrived:</dt>
         <dd class="col-2">@Model.Order.ArrivedDate</dd>
     </dl>
-    <hr/>
-<!-- --- --- --- Order Info --- --- --- -->
+    <hr/>-->
+<!-- --- --- --- Order Info --- --- --- --
 
     <dl class="row mt-3" style="font-size:x-large">
         <dt class="col-1">Brand:</dt>
@@ -88,82 +88,7 @@
         <dd class="col-12" style="white-space: pre-wrap;">@Model.Order.Product</dd>
     </dl>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>-->
 
 
 
@@ -190,4 +115,186 @@
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+
+
+
+<!--            New Section             -->
+
+<link rel="stylesheet" href="~/css/PSPCustom.css" asp-append-version="true" />
+
+<div class="adminWrapper">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="header-icon">
+                        <i class="fa fa fa-lg fa-truck-fast"></i>
+                    </span>
+
+                    <div class="header-title">
+                        <h1>
+                            <div class="memberInfo">ORDER&nbsp;&nbsp;@Model.Order.ID</div>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="rightLinksWrapper" style="">
+            <ul class="rightLinks">
+            </ul>
+        </div>
+        <div class="breadcrumbsWrapper">
+            <p class="breadcrumbs">
+                <a href="./Index">Order List</a> &gt;  <a href="Details?id=@Model.Order?.ID">Order @Model.Order?.ID</a>
+            </p>
+        </div>
+
+        <!-- Order Info Section -->
+        <form>
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- Contact Info -->
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Contact Info</span></span></h3>
+                        <div class="links">
+                            <a asp-page="/Contacts/Details" asp-route-id="@Model.Contact?.ID" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;">View</a>
+
+                        </div>
+                        <div class="slateContent">
+                            <div id="member_personal_area">
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan=""><strong>Name</strong></td>
+                                            <td>@Model.Contact?.Name</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan=""><strong>Phone Number</strong></td>
+                                            <td>@Model.Contact?.PhoneNumber</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Extra Number</strong></td>
+                                            <td>@Model.Contact?.AltPhoneNumber</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Payment Info -->
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Payment Info</span></span></h3>
+
+                        <div class="slateContent">
+                            <div id="member_personal_area">
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan=""><strong>Cost:</strong></td>
+                                            <td>£@Model.Order?.Cost</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan=""><strong>Paid:</strong></td>
+                                            <td>@Model.Order?.Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=""><strong>Balance:</strong></td>
+                                            <td>£@Model.Order?.Balance</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                
+                <div class="col-sm-9">
+                    <!-- Order Info -->
+                    <section class="slate">
+                        <h3><span class="slate-heading-frame"><span class="slate-heading-slant"><!-- --></span><span class="title">Order Info</span></span></h3>
+                        <div class="links">
+                            <a asp-page="./Edit" asp-route-id="@Model.Order?.ID" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;">Update</a>
+                            <a href="#" class="btn btn-danger" style="margin-bottom: 20px; cursor: pointer; float:right; font-size:small;" data-bs-toggle="modal" data-bs-target="#deleteOrder">Delete</a>
+                        </div>
+                        <div class="slateContent">
+                            <div id="member_personal_area">
+                                <table class="admin" style="width: 100%">
+                                    <tbody>
+                                        <tr class="text-center">
+                                            <th class="w-25">Start&nbsp;Date:</th>
+                                            <th class="w-25">Ordered&nbsp;Date:</th>
+                                            <th class="w-25">Estimated&nbsp;Date:</th>
+                                            <th class="w-25">Arrived&nbsp;Date:</th>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <td class="w-25">@Model.Order?.StartDate</td>
+                                            <td class="w-25">@Model.Order?.OrderDate</td>
+                                            <td class="w-25">@Model.Order?.EstimatedDate</td>
+                                            <td class="w-25">@Model.Order?.ArrivedDate</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="admin" style="width: 100%">
+                                    <tbody style="font-size:large">
+                                        <tr>
+                                            <th class="w-10 text-center">Brand:</th>
+                                            <td class="w-40">@Model.Order?.Brand</td>
+                                            <th class="w-10 text-center">Ref&nbsp;Code:</th>
+                                            <td class="w-40">@Model.Order?.OrderCode</td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="4" class="text-decoration-underline">Product Information:</th>
+                                        </tr>
+                                        <tr><td colspan="4" style="white-space: pre-wrap;">@Model.Order?.Product</td></tr>
+                                        <tr>
+                                            <th colspan="2">Progress:</th>
+                                            <td colspan="2">@Model.Order?.Progress</td>
+                                        </tr>
+
+                                        
+                                        <tr style="font-size:large">
+
+                                            <td colspan="5">
+                                                <a asp-page="./Edit" asp-route-id="@Model.Order?.ID" class="btn btn-primary d-grid">
+                                                    <h4><i class="fa-solid fa-wrench"></i><strong>&nbsp;UPDATE&nbsp;</strong><i class="fa-solid fa-wrench"></i></h4>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section> 
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>

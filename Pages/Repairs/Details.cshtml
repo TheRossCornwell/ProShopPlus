@@ -221,34 +221,34 @@
                                 <table class="admin" style="width: 100%">
                                     <tbody>
                                         <tr>
-                                            <th class="w-10">Start Date:</th>
+                                            <th class="w-10">Start&nbsp;Date:</th>
                                             <td colspan="" class="w-10">@Model.Repair?.StartDate</td>
                                             <td class="w-5"></td>
-                                            <th class="w-12">Target Date:</th>
+                                            <th class="w-12">Target&nbsp;Date:</th>
                                             
                                             <td>@Model.Repair?.TargetDate</td>
                                         </tr>
-                                        <tr style="font-size:x-large">
+                                        <tr style="font-size:large">
                                             <th colspan="2">Repair Type:</th>
-                                            <td colspan="4">@Model.Repair?.Type</td>
+                                            <td colspan="4" class="border-bottom">@Model.Repair?.Type</td>
                                         </tr>
-                                        <tr style="font-size:x-large">
+                                        <tr style="font-size:large">
                                             <th colspan="2">Components:</t>
-                                            <td colspan="4">@Model.Repair?.Component</td>
+                                            <td colspan="4" class="border-bottom" style="white-space: pre-wrap;">@Model.Repair?.Component</td>
                                         </tr>
-                                        <tr style="font-size:x-large">
+                                        <tr style="font-size:large">
                                             <th colspan="2">Description:</th>
-                                            <td colspan="4">@Model.Repair?.Description</td>
+                                            <td colspan="4" class="border-bottom"  style="white-space: pre-wrap;">@Model.Repair?.Description</td>
                                         </tr>
                                         
-                                        <tr style="font-size:x-large">
+                                        <tr style="font-size:large">
                                             <th colspan="2">Progress:</th>
                                             <td colspan="4">@Model.Repair?.Progress</td>
                                         </tr>
                                         <tr>
                                             <td> &nbsp;</td>
                                         </tr>
-                                        <tr style="font-size:x-large">
+                                        <tr style="font-size:large">
                                             
                                             <td colspan="5">
                                                 <a asp-page="./Edit" asp-route-id="@Model.Repair?.ID" class="btn btn-primary d-grid">
